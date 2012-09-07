@@ -1,7 +1,7 @@
-function newfile=swapWinDriveLetter(fullfile,newDriveLetter)
+function newfile=overwriteWinDriveLetter(fullfile,newDriveLetter)
 %Swap out the drive letter for newDriveLetter
 %EXAMPLE
-% newfile=swapWinDriveLetter('F:\My\Folder\file.txt','G')
+% newfile=overwriteWinDriveLetter('F:\My\Folder\file.txt','G')
 % newfile=
 %       G:\My\Folder\file.txt
 %
