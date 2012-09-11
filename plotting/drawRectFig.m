@@ -47,15 +47,17 @@ assert(x>=0 && y>=0, 'coordinates seem to fall off the figure');
 %Draw the rectangle (in figure units)
 hrect=annotation('rectangle',[x y x2-x y2-y]);
 
-%Set the color
-if exist('color','var')
-    set(hrect,'FaceColor',color);
-    set(hrect,'LineStyle','none');
-end
-
 %Set the transparency
 if exist('alpha','var')
     set(hrect,'FaceAlpha',alpha);
+end
+
+
+%Set the color
+if exist('color','var')
+    set(hrect,'FaceColor',color);
+    set(hrect,'LineWidth',0);
+    set(hrect,'LineStyle','none');
 end
 
 
