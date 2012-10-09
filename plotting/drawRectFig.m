@@ -43,9 +43,10 @@ assert(exist('ds2nfu','file')==2,'Error: This function depends on the ds2fnu scr
 [x, y]=ds2nfu(h_axes_bl, xy_bl(1),xy_bl(2));
 [x2,y2]=ds2nfu(h_axes_tr,xy_tr(1),xy_tr(2));
 
-assert(x>=0 && y>=0, 'coordinates seem to fall off the figure');
+
+
 %Draw the rectangle (in figure units)
-hrect=annotation('rectangle',[x y x2-x y2-y]);
+hrect=annotation('rectangle',[x y  x2-x y2-y]);
 
 %Set the transparency
 if exist('alpha','var')
