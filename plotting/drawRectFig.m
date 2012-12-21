@@ -46,19 +46,32 @@ assert(exist('ds2nfu','file')==2,'Error: This function depends on the ds2fnu scr
 
 
 %Draw the rectangle (in figure units)
-hrect=annotation('rectangle',[x y  x2-x y2-y]);
+try
+    hrect=annotation('rectangle',[x y  x2-x y2-y]);
+    
+    %Set the transparency
+    if exist('alpha','var')
+        set(hrect,'FaceAlpha',alpha);
+    end
 
-%Set the transparency
-if exist('alpha','var')
-    set(hrect,'FaceAlpha',alpha);
+
+    %Set the color
+    if exist('color','var')
+        set(hrect,'FaceColor',color);
+        set(hrect,'LineWidth',0);
+        set(hrect,'LineStyle','none');
+    end
+
+catch
+    disp('Error! The Annotation function failed. ');
+    
+    params=[x y  x2-x y2-y]
+    if  any(params  <0) || any(params >1)
+        disp('The error was likely because the parameters for drawing the rectangle were not between 0 and 1');
+    else
+        disp('Its unclear why the error occured')
+    end
 end
 
-
-%Set the color
-if exist('color','var')
-    set(hrect,'FaceColor',color);
-    set(hrect,'LineWidth',0);
-    set(hrect,'LineStyle','none');
-end
 
 
