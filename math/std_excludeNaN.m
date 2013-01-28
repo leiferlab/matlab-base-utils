@@ -1,6 +1,6 @@
-function avg=mean_excludeNaN(vec)
-% avg=mean_excludeNaN(vec)
-% Find the mean excluding NaNs
+function standev=std_excludeNaN(vec)
+% standev=std_excludeNaN(vec)
+% Find the standard deviation via "std" excluding NaNs
 
 
 if isempty(vec)
@@ -12,15 +12,15 @@ if ndims(vec)>2
 end
 
 
-%If we have a  matrix find the mean of each column
+%If we have a  matrix find the std of each column
 if all(size(vec)>1)
-    avg=NaN*ones(1,size(vec,2)); %pre allocate
+    standev=NaN*ones(1,size(vec,2)); %pre allocate
     for k=1:size(vec,2)
         tempVec=vec(:,k); % for each column
-        avg(1,k)=mean(tempVec(~isnan(tempVec)));
+        standev(1,k)=std(tempVec(~isnan(tempVec)));
     end
     
 else %if we have a single row or column vector or a single point
-    avg=mean(vec(~isnan(vec))); 
+    standev=std(vec(~isnan(vec))); 
 end
 
