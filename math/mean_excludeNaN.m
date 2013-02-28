@@ -4,7 +4,8 @@ function avg=mean_excludeNaN(vec)
 
 
 if isempty(vec)
-    error('Error! vec is empty');
+    avg=[];
+    return;
 end
 
 if ndims(vec)>2 
